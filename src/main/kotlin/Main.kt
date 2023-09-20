@@ -7,8 +7,8 @@ val INPUT = File("src/main/kotlin/Input.txt").inputStream()
 // val INPUT = System.`in`
 
 @JvmField
-val OUTPUT = System.out
-// val OUTPUT = File("src/main/kotlin/Output.txt").outputStream()
+val OUTPUT = File("src/main/kotlin/Output.txt").outputStream()
+// val OUTPUT = System.out
 
 @JvmField
 val _reader = INPUT.bufferedReader()
