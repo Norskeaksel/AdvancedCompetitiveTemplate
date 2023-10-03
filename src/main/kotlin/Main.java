@@ -29,9 +29,6 @@ public class Main {
         return br.readLine().trim();
     }
 
-    public static String solve() {
-        return "";
-    }
 
     public static void main(String[] args) throws IOException {
         try {
@@ -44,5 +41,9 @@ public class Main {
         int n = readInt();
         System.out.println(solve());
         out.close();
+    }
+
+    public static String solve() {
+        return "";
     }
 }
