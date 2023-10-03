@@ -40,11 +40,16 @@ fun readFileLines(fileName: String) = File(fileName).readLines()
 fun debug(x: Any) = System.err.println("DEBUG: $x")
 
 fun main() {
-    _writer.solve(); _writer.flush()
+    _writer.execute(); _writer.flush()
 }
 
-fun PrintWriter.solve() {
+fun PrintWriter.execute() {
     val n = readInt()
     repeat(n) {
+        solve()
     }
+}
+
+fun solve():String{
+    return ""
 }
