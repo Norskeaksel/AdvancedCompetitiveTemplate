@@ -21,8 +21,8 @@ class TestMain : TestCase() {
 
     private fun generatedVsMain() {
         compareFiles(
-            "src/test/kotlin/GeneratedOutput.txt",
             "src/main/kotlin/Output.txt",
+            "src/test/kotlin/GeneratedOutput.txt",
         )
     }
 
