@@ -2,10 +2,33 @@ import junit.framework.TestCase
 import java.io.File
 
 class TestMain : TestCase() {
-    fun testMain() {
+    fun testSampleMain() {
         main() // Main.main(arrayOf()) for testing Java file
-        val myAnswer = File("src/main/kotlin/Output.txt").readText()
-        val answer = File("src/test/kotlin/TestOutput.txt").readText()
+        compareFiles(
+            "src/test/kotlin/TestOutput.txt",
+            "src/main/kotlin/Output.txt",
+        )
+    }
+
+    fun testVsMainOutput() {
+        generatedVsMain()
+    }
+
+    fun testGeneratedMain() {
+        main() // Remember to CHANGE the input file in Main.kt
+        generatedVsMain()
+    }
+
+    private fun generatedVsMain() {
+        compareFiles(
+            "src/test/kotlin/GeneratedOutput.txt",
+            "src/main/kotlin/Output.txt",
+        )
+    }
+
+    fun compareFiles(path1: String, path2: String) {
+        val myAnswer = File(path1).readText()
+        val answer = File(path2).readText()
         assertEquals(answer, myAnswer)
     }
 }
