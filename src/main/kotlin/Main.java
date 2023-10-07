@@ -2,49 +2,52 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
-import java.math.BigInteger;
 import java.util.StringTokenizer;
+import java.io.*;
 
 public class Main {
-    static BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-    static PrintWriter writer = new PrintWriter(System.out, false);
+
+    static BufferedReader br;
+    static PrintWriter out;
+    static StringTokenizer st;
+
+    static String next() throws IOException {
+        while (st == null || !st.hasMoreTokens())
+            st = new StringTokenizer(br.readLine().trim());
+        return st.nextToken();
+    }
+
+    static long readLong() throws IOException {
+        return Long.parseLong(next());
+    }
+
+    static int readInt() throws IOException {
+        return Integer.parseInt(next());
+    }
+
+    static double readDouble() throws IOException {
+        return Double.parseDouble(next());
+    }
+
+    static String readLine() throws IOException {
+        return br.readLine().trim();
+    }
+
 
     public static void main(String[] args) throws IOException {
-        while (true) {
-            String a = read();
-            String b = read();
-            if (a.equals("0") && b.equals("0")) break;
-            writer.println(solve(a, b));
+        try {
+            br = new BufferedReader(new FileReader("src/main/kotlin/Input.txt"));
+            out = new PrintWriter(new FileWriter("src/main/kotlin/Output.txt"));
+        } catch (FileNotFoundException e) {
+            br = new BufferedReader(new InputStreamReader(System.in));
+            out = new PrintWriter(new OutputStreamWriter(System.out));
         }
-        writer.flush();
+        int n = readInt();
+        System.out.println(solve());
+        out.close();
     }
 
-    static String read() throws IOException {
-        StringTokenizer tokenizer = new StringTokenizer("");
-        while (!tokenizer.hasMoreTokens()) {
-            tokenizer = new StringTokenizer(reader.readLine());
-        }
-        return tokenizer.nextToken();
-    }
-
-    static int solve(String a, String b) {
-        BigInteger A = new BigInteger(a);
-        BigInteger B = new BigInteger(b);
-        BigInteger prev2 = BigInteger.ONE;
-        BigInteger prev1 = BigInteger.ONE.add(BigInteger.ONE);
-        if (A.compareTo(BigInteger.ONE) <= 0) {
-            if (B.equals(BigInteger.ONE)) return 1;
-            if (B.equals(new BigInteger("2"))) return 2;
-        }
-        int nr = 0;
-        while (prev2.add(prev1).compareTo(B) <= 0) {
-            if (prev2.add(prev1).compareTo(A) >= 0) {
-                nr++;
-            }
-            BigInteger cur = prev2.add(prev1);
-            prev2 = prev1;
-            prev1 = cur;
-        }
-        return nr;
+    public static String solve() {
+        return "";
     }
 }
