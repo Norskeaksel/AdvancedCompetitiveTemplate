@@ -2,16 +2,16 @@ import junit.framework.TestCase
 import java.io.File
 
 class TestMain : TestCase() {
+    fun testVsMainOutput() {
+        generatedVsMain()
+    }
+
     fun testSampleMain() {
         main() // Main.main(arrayOf()) for testing Java file
         compareFiles(
             "src/test/kotlin/TestOutput.txt",
             "src/main/kotlin/Output.txt",
         )
-    }
-
-    fun testVsMainOutput() {
-        generatedVsMain()
     }
 
     fun testGeneratedMain() {
