@@ -1,14 +1,23 @@
 import java.io.File
+import java.io.InputStream
+import java.io.OutputStream
 import java.io.PrintWriter
 import java.util.*
 
-// val INPUT = File("src/main/kotlin/Input.txt").inputStream()
 @JvmField
-val INPUT = System.`in`
+val INPUT: InputStream = "src/main/kotlin/SampleInput.txt".let { path ->
+    if (File(path).exists())
+        File("src/main/kotlin/SampleInput.txt").inputStream()
+    else System.`in`
+}
 
-// val OUTPUT = File("src/main/kotlin/Output.txt").outputStream()
 @JvmField
-val OUTPUT = System.out
+val OUTPUT: OutputStream = "src/main/kotlin/ProgramOutput.txt".let { path ->
+    if (File(path).exists())
+        File(path).outputStream()
+    else
+        System.out
+}
 
 @JvmField
 val _reader = INPUT.bufferedReader()
@@ -46,7 +55,7 @@ fun main() {
 fun PrintWriter.execute() {
     val n = readInt()
     repeat(n) {
-        solve()
+
     }
 }
 

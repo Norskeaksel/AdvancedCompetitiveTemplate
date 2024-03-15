@@ -9,7 +9,7 @@ class TestDataGenerator {
             Pair(BigInteger.ONE, BigInteger("1" + "0".repeat(100))),
             Pair(BigInteger.ONE, BigInteger("1" + "0".repeat(100))),
         )
-        val file = File("src/test/kotlin/GeneratetInput.txt")
+        val file = File("src/test/kotlin/CustomGeneratedInput.txt")
         file.writeText("")
         for (n in 1..20)
             repeat(100) {
