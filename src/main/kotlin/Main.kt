@@ -58,7 +58,3 @@ fun PrintWriter.execute() {
 
     }
 }
-
-fun solve(): String {
-    return ""
-}
